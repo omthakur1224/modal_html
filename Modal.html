@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+     /* Button styles */
+#openModalBtn {
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+    </style>
+  </head>
+  <body>
+    <button id="openModalBtn">Open Modal</button>
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Modal Title</h2>
+        <p>Modal Content</p>
+      </div>
+    </div>
+    
+  </body>
+</html>
+
+<script>
+  var modal = document.getElementById('modal');
+var openModalBtn = document.getElementById('openModalBtn');
+var closeModalBtn = document.getElementsByClassName('close')[0];
+
+// Open the modal
+openModalBtn.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+// Close the modal when the close button is clicked
+closeModalBtn.addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Close the modal when clicking outside of it
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
+
+</script>
